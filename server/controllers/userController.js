@@ -1,5 +1,5 @@
 const User = require("../models/userModel");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt");//used for encryption of password 
 
 module.exports.login = async (req, res, next) => {
   try {

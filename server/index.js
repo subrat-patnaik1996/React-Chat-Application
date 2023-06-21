@@ -1,13 +1,14 @@
 const express = require("express");
 const cors = require("cors");
-const mongoose = require("mongoose");
+const mongoose = require("mongoose");//used to interact with mongodb server
 const authRoutes = require("./routes/auth");
 const messageRoutes = require("./routes/messages");
+
 const app = express();
 const socket = require("socket.io");
 require("dotenv").config();
 
-app.use(cors());
+app.use(cors()); //middelware
 app.use(express.json());
 
 mongoose
@@ -24,6 +25,8 @@ mongoose
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
+
+//initiate the server
 
 const server = app.listen(process.env.PORT, () =>
   console.log(`Server started on ${process.env.PORT}`)
